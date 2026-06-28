@@ -1,0 +1,397 @@
+:root {
+    --bg-sidebar: #18181b;
+    --bg-navbar: #27272a;
+    --bg-main: #27272a;
+    --border-color: #3f3f46;
+    --text-primary: #ffffff;
+    --text-muted: #a1a1aa;
+    --focus-ring: #ffffff;
+}
+
+[data-theme="light"] {
+    --bg-sidebar: #f5f5f5;
+    --bg-navbar: #ffffff;
+    --bg-main: #f9fafb;
+    --border-color: #e4e4e7;
+    --text-primary: #18181b;
+    --text-muted: #52525b;
+    --focus-ring: #52525b;
+}
+
+/* Transiciones suaves para cambio de tema */
+.sidebar,
+.top-navbar,
+.main-content,
+.custom-dropdown,
+.search-bar,
+.badge-custom,
+.custom-border {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Nunito", sans-serif;
+}
+
+.app-container {
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--bg-sidebar);
+    width: 260px;
+    border-right: 1px solid var(--border-color);
+    z-index: 1050;
+    padding-right: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-logo {
+    background-color: var(--focus-ring);
+}
+
+.sidebar-section-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #52525b;
+    font-weight: 700;
+}
+
+/* Scrollbar de la Sidebar - Integrado, delgado y a la derecha */
+.custom-scrollbarpeq {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 5px;
+}
+
+.custom-scrollbarpeq::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbarpeq::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbarpeq::-webkit-scrollbar-thumb {
+    background: rgba(63, 63, 70, 0.6);
+    border-radius: 10px;
+}
+.custom-scrollbarpeq::-webkit-scrollbar-thumb:hover {
+    background: var(--focus-ring);
+}
+
+/* Light theme scrollbar */
+[data-theme="light"] .custom-scrollbarpeq::-webkit-scrollbar-thumb {
+    background: rgba(82, 82, 91, 0.4);
+}
+
+/* Animación Suave de Collapsables (Sidebar Dropdowns) */
+/* Al aplicar la transición al height, evitamos el salto brusco al abrir/cerrar */
+.collapse {
+    transition: height 0.3s ease-in-out;
+}
+
+/* Navbar */
+.top-navbar {
+    background-color: var(--bg-navbar);
+    height: 60px;
+}
+
+/* Contenido Principal */
+.main-content {
+    background-color: var(--bg-main);
+    overflow-y: auto;
+}
+
+/* Utilidades */
+.custom-border {
+    border-color: var(--border-color) !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Theme Toggle Switch */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3f3f46;
+    border-radius: 24px;
+}
+
+.theme-ready .slider {
+    transition: 0.4s ease;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #ffffff;
+    transition: 0.4s ease;
+    border-radius: 50%;
+}
+
+.theme-switch input:checked + .slider {
+    background-color: #52525b;
+}
+
+/* Light theme slider */
+[data-theme="light"] .theme-switch input:checked + .slider {
+    background-color: #ededed;
+}
+
+[data-theme="light"] .theme-switch .slider {
+    background-color: #e4e4e7;
+}
+
+[data-theme="light"] .theme-switch input:not(:checked) + .slider {
+    background-color: #e4e4e7;
+}
+
+.theme-switch input:checked + .slider:before {
+    transform: translateX(26px);
+    background-color: #52525b;
+}
+
+.theme-icon {
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: color 0.4s ease;
+}
+
+/* Light theme specific styles */
+[data-theme="light"] .text-white {
+    color: var(--text-primary) !important;
+}
+
+/* Light theme icon colors */
+[data-theme="light"] .icon-hover {
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .search-icon {
+    color: var(--focus-ring);
+}
+
+[data-theme="light"] .text-light {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .search-bar {
+    background-color: #e4e4e7;
+}
+
+[data-theme="light"] .custom-placeholder,
+[data-theme="light"] .custom-placeholder::placeholder {
+    color: #18181b !important;
+}
+
+[data-theme="light"] .sidebar-section-title {
+    color: #52525b;
+}
+
+/* Barra de Búsqueda */
+.search-bar {
+    background-color: #1f1f23;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+    border-color: var(--focus-ring);
+}
+
+.search-icon {
+    color: var(--focus-ring);
+}
+
+.custom-placeholder::placeholder {
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+
+.custom-placeholder {
+    color: #ffffff !important;
+}
+
+/* Menú Sidebar */
+.sidebar-nav .nav-link {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    background-color: rgba(242, 209, 230, 0.04);
+    border: 1px solid rgba(242, 209, 230, 0.2);
+    color: var(--text-primary);
+}
+
+/* Light theme hover/active states */
+[data-theme="light"] .sidebar-nav .nav-link:hover,
+[data-theme="light"] .sidebar-nav .nav-link.active {
+    background-color: rgba(82, 82, 91, 0.1);
+    border: 1px solid rgba(82, 82, 91, 0.3);
+}
+
+.sub-link {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.88rem !important;
+}
+
+.badge-custom {
+    background: var(--border-color);
+    color: var(--text-primary);
+    border-radius: 12px;
+    font-size: 0.75rem;
+}
+
+.sidebar-nav .nav-link:hover .badge-custom {
+    background: var(--focus-ring);
+    color: #ffffff;
+}
+
+.icon-hover {
+    transition: color 0.2s ease;
+}
+.icon-hover:hover {
+    color: var(--focus-ring) !important;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+.profile-img:hover {
+    border-color: var(--focus-ring);
+}
+
+.dropdown-toggle-no-caret::after {
+    display: none;
+}
+
+/* Animación de Dropdowns */
+.dropdown-menu.custom-dropdown {
+    display: block !important;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 0.2s ease-out,
+        transform 0.2s ease-out,
+        visibility 0.2s ease-out;
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.5rem;
+    min-width: 200px;
+    pointer-events: none;
+}
+
+.dropdown-menu.custom-dropdown.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.custom-dropdown .dropdown-item {
+    color: var(--text-muted);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: rgba(242, 209, 230, 0.08);
+    color: var(--focus-ring);
+}
+
+/* Light theme dropdown hover */
+[data-theme="light"] .custom-dropdown .dropdown-item:hover {
+    background-color: rgba(82, 82, 91, 0.08);
+    color: var(--focus-ring);
+}
+
+/* Responsivo */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease-in-out;
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        bottom: 0;
+        transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sidebar.show {
+        left: 0;
+    }
+}
