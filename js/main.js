@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Add theme-ready class to enable transitions after initial load
-  document.documentElement.classList.add("theme-ready");
-
-  // Theme toggle functionality
   const themeToggle = document.getElementById("themeToggle");
   const htmlElement = document.documentElement;
   const themeIcon = document.querySelector(".theme-icon");
   const profileImg = document.querySelector(".profile-img");
 
-  // Check for saved theme preference or default to dark
+  // Leer tema guardado
   const savedTheme = localStorage.getItem("theme") || "dark";
+
+  // Establecer el estado inicial de la UI de forma estática (sin animaciones activos)
   setTheme(savedTheme);
+
+  // Forzar reflujo para asegurar que el navegador procese los estilos iniciales instantáneamente
+  void htmlElement.offsetHeight;
+
+  // Habilitar la clase de animaciones para interacciones de clic futuras
+  htmlElement.classList.add("theme-ready");
 
   if (themeToggle) {
     themeToggle.addEventListener("change", () => {
@@ -24,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", theme);
     if (themeIcon) {
       themeIcon.className =
-        theme === "light" ? "bi bi-sun theme-icon" : "bi bi-moon theme-icon";
+        theme === "light" ? "bx bx-sun theme-icon" : "bx bx-moon theme-icon";
     }
     if (themeToggle) {
       themeToggle.checked = theme === "light";
@@ -40,12 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Rotación suave del indicador chevron en favoritos
   const favoritesCollapse = document.getElementById("favoritesCollapse");
   const chevronIcon = document.querySelector(
-    '[aria-controls="favoritesCollapse"] .bi-chevron-down',
+    '[aria-controls="favoritesCollapse"] .bx-chevron-down',
   );
 
   if (favoritesCollapse && chevronIcon) {
     chevronIcon.style.transition =
-      "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)";
+      "transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)";
 
     favoritesCollapse.addEventListener("show.bs.collapse", () => {
       chevronIcon.style.transform = "rotate(0deg)";

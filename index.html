@@ -4,14 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Dashboard Hook</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.cdnfonts.com/css/steamflix-grotesk" rel="stylesheet">
 
-        <!-- Prevent theme flash -->
+
+
         <script src="js/theme-init.js"></script>
 
         <link
@@ -19,9 +15,9 @@
             rel="stylesheet"
         />
         <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-        />
+            href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+            rel='stylesheet'
+        >
         <link href="css/style.css" rel="stylesheet" />
     </head>
     <body>
@@ -48,7 +44,7 @@
                     <div class="input-group search-bar">
                         <span
                             class="input-group-text bg-transparent border-0 search-icon"
-                            ><i class="bi bi-search"></i
+                            ><i class="bx bx-search"></i
                         ></span>
                         <input
                             type="text"
@@ -67,16 +63,16 @@
                     <a
                         class="nav-link active d-flex align-items-center"
                         href="#"
-                        ><i class="bi bi-house-door me-3"></i> Inicio</a
+                        ><i class="bx bx-home me-3"></i> Inicio</a
                     >
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bi bi-graph-up me-3"></i> Estadísticas</a
+                        ><i class="bx bx-bar-chart-alt-2 me-3"></i> Estadísticas</a
                     >
                     <a
                         class="nav-link d-flex align-items-center justify-content-between"
                         href="#"
                     >
-                        <div><i class="bi bi-inbox me-3"></i> Mensajes</div>
+                        <div><i class="bx bx-envelope me-3"></i> Mensajes</div>
                         <span class="badge badge-custom">5</span>
                     </a>
 
@@ -84,20 +80,20 @@
                         >Gestión</span
                     >
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bi bi-people me-3"></i> Clientes</a
+                        ><i class="bx bx-group me-3"></i> Clientes</a
                     >
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bi bi-folder me-3"></i> Proyectos</a
+                        ><i class="bx bx-folder me-3"></i> Proyectos</a
                     >
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bi bi-file-earmark-text me-3"></i>
+                        ><i class="bx bx-file me-3"></i>
                         Reportes</a
                     >
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bi bi-credit-card me-3"></i> Facturación</a
+                        ><i class="bx bx-credit-card me-3"></i> Facturación</a
                     >
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bi bi-calendar3 me-3"></i> Calendario</a
+                        ><i class="bx bx-calendar me-3"></i> Calendario</a
                     >
 
                     <div class="mt-2 w-100">
@@ -110,8 +106,8 @@
                             aria-controls="favoritesCollapse"
                         >
                             <i
-                                class="bi bi-chevron-down me-2 transition-icon"
-                                style="font-size: 0.7rem"
+                                class="bx bx-chevron-down me-2 transition-icon"
+                                style="font-size: 0.9rem"
                             ></i>
                             Favoritos
                         </a>
@@ -144,10 +140,10 @@
                 >
                     <nav class="nav flex-column flex-nowrap sidebar-nav gap-2">
                         <a class="nav-link d-flex align-items-center" href="#"
-                            ><i class="bi bi-gear me-3"></i> Configuración</a
+                            ><i class="bx bx-cog me-3"></i> Configuración</a
                         >
                         <a class="nav-link d-flex align-items-center" href="#"
-                            ><i class="bi bi-question-circle me-3"></i>
+                            ><i class="bx bx-help-circle me-3"></i>
                             Soporte</a
                         >
                     </nav>
@@ -162,12 +158,12 @@
                         class="btn btn-link text-white d-md-none p-0 shadow-none"
                         id="sidebarToggle"
                     >
-                        <i class="bi bi-list fs-3"></i>
+                        <i class="bx bx-menu fs-3"></i>
                     </button>
 
                     <div class="d-flex align-items-center gap-4 ms-auto">
                         <div class="theme-switch-wrapper">
-                            <i class="bi bi-moon theme-icon"></i>
+                            <i class="bx bx-moon theme-icon" style="font-size: 1.2rem;"></i>
                             <label class="theme-switch">
                                 <input type="checkbox" id="themeToggle" />
                                 <span class="slider"></span>
@@ -175,7 +171,7 @@
                         </div>
                         <div class="dropdown position-relative">
                             <i
-                                class="bi bi-bell text-white fs-5 cursor-pointer icon-hover dropdown-toggle-no-caret"
+                                class="bx bx-bell text-white fs-5 cursor-pointer icon-hover dropdown-toggle-no-caret"
                                 data-bs-toggle="dropdown"
                                 data-bs-display="static"
                                 aria-expanded="false"
@@ -221,13 +217,13 @@
                             >
                                 <li>
                                     <a class="dropdown-item" href="#"
-                                        ><i class="bi bi-person me-2"></i> Mi
+                                        ><i class="bx bx-user me-2"></i> Mi
                                         Perfil</a
                                     >
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="#"
-                                        ><i class="bi bi-gear me-2"></i>
+                                        ><i class="bx bx-cog me-2"></i>
                                         Configuración</a
                                     >
                                 </li>
@@ -241,7 +237,7 @@
                                         class="dropdown-item text-danger"
                                         href="#"
                                         ><i
-                                            class="bi bi-box-arrow-right me-2"
+                                            class="bx bx-log-out me-2"
                                         ></i>
                                         Cerrar Sesión</a
                                     >
@@ -266,4 +262,4 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/main.js"></script>
     </body>
-</html>
+    </html>

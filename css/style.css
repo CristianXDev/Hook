@@ -38,7 +38,8 @@ html {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    font-family: "Nunito", sans-serif;
+    font-family: 'Steamflix Grotesk', sans-serif;
+
 }
 
 .app-container {
@@ -68,7 +69,7 @@ html {
     font-weight: 700;
 }
 
-/* Scrollbar de la Sidebar - Integrado, delgado y a la derecha */
+/* Scrollbar de la Sidebar */
 .custom-scrollbarpeq {
     overflow-y: auto;
     flex-grow: 1;
@@ -95,9 +96,12 @@ html {
 }
 
 /* Animación Suave de Collapsables (Sidebar Dropdowns) */
-/* Al aplicar la transición al height, evitamos el salto brusco al abrir/cerrar */
+.collapsing {
+    transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
 .collapse {
-    transition: height 0.3s ease-in-out;
+    transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Navbar */
@@ -151,7 +155,9 @@ html {
     border-radius: 24px;
 }
 
-.theme-ready .slider {
+/* SOLUCIÓN AL BUG: Las transiciones del fondo y del círculo solo se activan con .theme-ready */
+.theme-ready .slider,
+.theme-ready .slider:before {
     transition: 0.4s ease;
 }
 
@@ -163,7 +169,6 @@ html {
     left: 3px;
     bottom: 3px;
     background-color: #ffffff;
-    transition: 0.4s ease;
     border-radius: 50%;
 }
 
@@ -200,7 +205,6 @@ html {
     color: var(--text-primary) !important;
 }
 
-/* Light theme icon colors */
 [data-theme="light"] .icon-hover {
     color: var(--text-primary);
 }
@@ -316,7 +320,7 @@ html {
     display: none;
 }
 
-/* Animación de Dropdowns */
+/* Animación de Dropdowns del Navbar */
 .dropdown-menu.custom-dropdown {
     display: block !important;
     position: absolute;
