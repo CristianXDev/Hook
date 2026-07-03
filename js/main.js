@@ -1,21 +1,24 @@
+// Espera a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
+  // Obtener elementos del DOM
   const themeToggle = document.getElementById("themeToggle");
   const htmlElement = document.documentElement;
   const themeIcon = document.querySelector(".theme-icon");
   const profileImg = document.querySelector(".profile-img");
 
-  // Leer tema guardado
+  // Leer tema guardado en localStorage (por defecto: "dark")
   const savedTheme = localStorage.getItem("theme") || "dark";
 
-  // Establecer el estado inicial de la UI de forma estática (sin animaciones activos)
+  // Establecer el estado inicial del tema sin animaciones
   setTheme(savedTheme);
 
-  // Forzar reflujo para asegurar que el navegador procese los estilos iniciales instantáneamente
+  // Forzar reflujo para procesar estilos iniciales
   void htmlElement.offsetHeight;
 
-  // Habilitar la clase de animaciones para interacciones de clic futuras
+  // Habilitar animaciones de tema con la clase "theme-ready"
   htmlElement.classList.add("theme-ready");
 
+  // Escuchar cambios en el toggle de tema
   if (themeToggle) {
     themeToggle.addEventListener("change", () => {
       const theme = themeToggle.checked ? "light" : "dark";
@@ -23,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Función: Cambia el tema y actualiza la UI
   function setTheme(theme) {
     htmlElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
@@ -41,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Rotación suave del indicador chevron en favoritos
+  // Rotación del ícono chevron en el menú de favoritos
   const favoritesCollapse = document.getElementById("favoritesCollapse");
   const chevronIcon = document.querySelector(
     '[aria-controls="favoritesCollapse"] .bx-chevron-down',
@@ -60,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Comportamiento responsivo para pantallas móviles (Sidebar Drawer)
+  // Manejo del sidebar móvil (drawer)
   const sidebar = document.getElementById("sidebar");
   const sidebarToggle = document.getElementById("sidebarToggle");
   const sidebarOverlay = document.getElementById("sidebarOverlay");

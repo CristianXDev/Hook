@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="es">
+    <!--HEAD-->
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Dashboard Hook</title>
-        <link href="https://fonts.cdnfonts.com/css/steamflix-grotesk" rel="stylesheet">
-
-
+        <link
+            href="https://fonts.cdnfonts.com/css/steamflix-grotesk"
+            rel="stylesheet"
+        />
 
         <script src="js/theme-init.js"></script>
 
@@ -15,19 +17,26 @@
             rel="stylesheet"
         />
         <link
-            href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-            rel='stylesheet'
-        >
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
         <link href="css/style.css" rel="stylesheet" />
     </head>
-    <body>
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!--/HEAD-->
 
+    <body>
+        <!--OVERLAY-->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <!--/OVERLAY-->
+
+        <!--APP CONTAINER-->
         <div class="app-container d-flex">
+            <!--SIDEBAR-->
             <aside
                 class="sidebar p-3 d-flex flex-column flex-nowrap"
                 id="sidebar"
             >
+                <!--BRAND LOGO-->
                 <div
                     class="d-flex align-items-center mb-4 mt-2 px-2 flex-shrink-0"
                 >
@@ -39,7 +48,9 @@
                     </div>
                     <span class="text-light fw-bold fs-5">Hook</span>
                 </div>
+                <!--/BRAND LOGO-->
 
+                <!--SEARCH BAR-->
                 <div class="mb-4 me-2 flex-shrink-0">
                     <div class="input-group search-bar">
                         <span
@@ -53,21 +64,34 @@
                         />
                     </div>
                 </div>
+                <!--/SEARCH BAR-->
 
+                <!--SIDEBAR NAV-->
                 <nav
                     class="nav flex-column flex-nowrap sidebar-nav gap-2 flex-grow-1 overflow-auto custom-scrollbarpeq pb-2"
                 >
+                    <!--SECTION TITLE: PANEL PRINCIPAL-->
                     <span class="sidebar-section-title px-2 mt-2 mb-1"
                         >Panel Principal</span
                     >
+                    <!--/SECTION TITLE-->
+
+                    <!--NAV LINK: INICIO-->
                     <a
                         class="nav-link active d-flex align-items-center"
                         href="#"
                         ><i class="bx bx-home me-3"></i> Inicio</a
                     >
+                    <!--/NAV LINK-->
+
+                    <!--NAV LINK: ESTADISTICAS-->
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bx bx-bar-chart-alt-2 me-3"></i> Estadísticas</a
+                        ><i class="bx bx-bar-chart-alt-2 me-3"></i>
+                        Estadísticas</a
                     >
+                    <!--/NAV LINK-->
+
+                    <!--NAV LINK: MENSAJES-->
                     <a
                         class="nav-link d-flex align-items-center justify-content-between"
                         href="#"
@@ -75,27 +99,45 @@
                         <div><i class="bx bx-envelope me-3"></i> Mensajes</div>
                         <span class="badge badge-custom">5</span>
                     </a>
+                    <!--/NAV LINK-->
 
+                    <!--SECTION TITLE: GESTION-->
                     <span class="sidebar-section-title px-2 mt-3 mb-1"
                         >Gestión</span
                     >
+                    <!--/SECTION TITLE-->
+
+                    <!--NAV LINK: CLIENTES-->
                     <a class="nav-link d-flex align-items-center" href="#"
                         ><i class="bx bx-group me-3"></i> Clientes</a
                     >
+                    <!--/NAV LINK-->
+
+                    <!--NAV LINK: PROYECTOS-->
                     <a class="nav-link d-flex align-items-center" href="#"
                         ><i class="bx bx-folder me-3"></i> Proyectos</a
                     >
+                    <!--/NAV LINK-->
+
+                    <!--NAV LINK: REPORTES-->
                     <a class="nav-link d-flex align-items-center" href="#"
-                        ><i class="bx bx-file me-3"></i>
-                        Reportes</a
+                        ><i class="bx bx-file me-3"></i> Reportes</a
                     >
+                    <!--/NAV LINK-->
+
+                    <!--NAV LINK: FACTURACION-->
                     <a class="nav-link d-flex align-items-center" href="#"
                         ><i class="bx bx-credit-card me-3"></i> Facturación</a
                     >
+                    <!--/NAV LINK-->
+
+                    <!--NAV LINK: CALENDARIO-->
                     <a class="nav-link d-flex align-items-center" href="#"
                         ><i class="bx bx-calendar me-3"></i> Calendario</a
                     >
+                    <!--/NAV LINK-->
 
+                    <!--FAVORITES DROPDOWN-->
                     <div class="mt-2 w-100">
                         <a
                             class="nav-link d-flex align-items-center"
@@ -133,42 +175,63 @@
                             </ul>
                         </div>
                     </div>
+                    <!--/FAVORITES DROPDOWN-->
                 </nav>
+                <!--/SIDEBAR NAV-->
 
+                <!--SIDEBAR FOOTER-->
                 <div
                     class="mt-auto pt-3 border-top custom-border flex-shrink-0"
                 >
                     <nav class="nav flex-column flex-nowrap sidebar-nav gap-2">
+                        <!--NAV LINK: CONFIGURACION-->
                         <a class="nav-link d-flex align-items-center" href="#"
                             ><i class="bx bx-cog me-3"></i> Configuración</a
                         >
+                        <!--/NAV LINK-->
+
+                        <!--NAV LINK: SOPORTE-->
                         <a class="nav-link d-flex align-items-center" href="#"
-                            ><i class="bx bx-help-circle me-3"></i>
-                            Soporte</a
+                            ><i class="bx bx-help-circle me-3"></i> Soporte</a
                         >
+                        <!--/NAV LINK-->
                     </nav>
                 </div>
+                <!--/SIDEBAR FOOTER-->
             </aside>
+            <!--/SIDEBAR-->
 
+            <!--CONTENT WRAPPER-->
             <div class="content-wrapper d-flex flex-column flex-grow-1">
+                <!--NAVBAR-->
                 <nav
                     class="navbar top-navbar px-4 border-bottom custom-border d-flex justify-content-between align-items-center"
                 >
+                    <!--SIDEBAR TOGGLE BUTTON-->
                     <button
                         class="btn btn-link text-white d-md-none p-0 shadow-none"
                         id="sidebarToggle"
                     >
                         <i class="bx bx-menu fs-3"></i>
                     </button>
+                    <!--/SIDEBAR TOGGLE BUTTON-->
 
+                    <!--NAVBAR RIGHT SIDE-->
                     <div class="d-flex align-items-center gap-4 ms-auto">
+                        <!--THEME SWITCH-->
                         <div class="theme-switch-wrapper">
-                            <i class="bx bx-moon theme-icon" style="font-size: 1.2rem;"></i>
+                            <i
+                                class="bx bx-moon theme-icon"
+                                style="font-size: 1.2rem"
+                            ></i>
                             <label class="theme-switch">
                                 <input type="checkbox" id="themeToggle" />
                                 <span class="slider"></span>
                             </label>
                         </div>
+                        <!--/THEME SWITCH-->
+
+                        <!--NOTIFICATIONS DROPDOWN-->
                         <div class="dropdown position-relative">
                             <i
                                 class="bx bx-bell text-white fs-5 cursor-pointer icon-hover dropdown-toggle-no-caret"
@@ -198,7 +261,9 @@
                                 </li>
                             </ul>
                         </div>
+                        <!--/NOTIFICATIONS DROPDOWN-->
 
+                        <!--USER DROPDOWN-->
                         <div class="dropdown position-relative">
                             <div
                                 class="d-flex align-items-center cursor-pointer dropdown-toggle-no-caret"
@@ -236,17 +301,19 @@
                                     <a
                                         class="dropdown-item text-danger"
                                         href="#"
-                                        ><i
-                                            class="bx bx-log-out me-2"
-                                        ></i>
+                                        ><i class="bx bx-log-out me-2"></i>
                                         Cerrar Sesión</a
                                     >
                                 </li>
                             </ul>
                         </div>
+                        <!--/USER DROPDOWN-->
                     </div>
+                    <!--/NAVBAR RIGHT SIDE-->
                 </nav>
+                <!--/NAVBAR-->
 
+                <!--MAIN CONTENT-->
                 <main class="main-content p-4 p-md-5 flex-grow-1">
                     <div class="max-width-container">
                         <h2 class="text-white fw-bold">Bienvenido a Hook</h2>
@@ -256,10 +323,17 @@
                         </p>
                     </div>
                 </main>
+                <!--/MAIN CONTENT-->
             </div>
+            <!--/CONTENT WRAPPER-->
         </div>
+        <!--/APP CONTAINER-->
 
+        <!--SCRIPTS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/main.js"></script>
+        <!--/SCRIPTS-->
     </body>
-    </html>
+    <!--/BODY-->
+</html>
+<!--/HTML-->

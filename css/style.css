@@ -1,3 +1,20 @@
+/*
+ * ORDEN DE ESTILOS:
+ * 1. Variables CSS (Tema oscuro/claro)
+ * 2. Estilos Generales (body, html, fuentes)
+ * 3. Sidebar
+ * 4. Navbar
+ * 5. Main Content
+ * 6. Search Bar
+ * 7. Sidebar Nav
+ * 8. Dropdown
+ * 9. Theme Switch
+ * 10. Responsive
+ */
+
+/*=====================================
+  1. VARIABLES CSS (Tema oscuro/claro)
+=====================================*/
 :root {
     --bg-sidebar: #18181b;
     --bg-navbar: #27272a;
@@ -18,35 +35,25 @@
     --focus-ring: #52525b;
 }
 
-/* Transiciones suaves para cambio de tema */
-.sidebar,
-.top-navbar,
-.main-content,
-.custom-dropdown,
-.search-bar,
-.badge-custom,
-.custom-border {
-    transition:
-        background-color 0.4s ease,
-        color 0.4s ease,
-        border-color 0.4s ease;
-}
-
+/*=====================================
+  2. ESTILOS GENERALES
+=====================================*/
 body,
 html {
     margin: 0;
     padding: 0;
     height: 100%;
     overflow: hidden;
-    font-family: 'Steamflix Grotesk', sans-serif;
-
+    font-family: "Steamflix Grotesk", sans-serif;
 }
 
 .app-container {
     height: 100vh;
 }
 
-/* Sidebar */
+/*=====================================
+  3. SIDEBAR
+=====================================*/
 .sidebar {
     background-color: var(--bg-sidebar);
     width: 260px;
@@ -69,7 +76,7 @@ html {
     font-weight: 700;
 }
 
-/* Scrollbar de la Sidebar */
+/* Sidebar Scrollbar */
 .custom-scrollbarpeq {
     overflow-y: auto;
     flex-grow: 1;
@@ -79,23 +86,25 @@ html {
 .custom-scrollbarpeq::-webkit-scrollbar {
     width: 4px;
 }
+
 .custom-scrollbarpeq::-webkit-scrollbar-track {
     background: transparent;
 }
+
 .custom-scrollbarpeq::-webkit-scrollbar-thumb {
     background: rgba(63, 63, 70, 0.6);
     border-radius: 10px;
 }
+
 .custom-scrollbarpeq::-webkit-scrollbar-thumb:hover {
     background: var(--focus-ring);
 }
 
-/* Light theme scrollbar */
 [data-theme="light"] .custom-scrollbarpeq::-webkit-scrollbar-thumb {
     background: rgba(82, 82, 91, 0.4);
 }
 
-/* Animación Suave de Collapsables (Sidebar Dropdowns) */
+/* Sidebar Collapsible Animation */
 .collapsing {
     transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
@@ -104,27 +113,169 @@ html {
     transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Navbar */
+/*=====================================
+  4. NAVBAR
+=====================================*/
 .top-navbar {
     background-color: var(--bg-navbar);
     height: 60px;
 }
 
-/* Contenido Principal */
+/*=====================================
+  5. MAIN CONTENT
+=====================================*/
 .main-content {
     background-color: var(--bg-main);
     overflow-y: auto;
 }
 
-/* Utilidades */
-.custom-border {
-    border-color: var(--border-color) !important;
-}
-.cursor-pointer {
-    cursor: pointer;
+/*=====================================
+  6. SEARCH BAR
+=====================================*/
+.search-bar {
+    background-color: #1f1f23;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-/* Theme Toggle Switch */
+.search-bar:focus-within {
+    border-color: var(--focus-ring);
+}
+
+.search-icon {
+    color: var(--focus-ring);
+}
+
+.custom-placeholder {
+    color: #ffffff !important;
+}
+
+.custom-placeholder::placeholder {
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+
+/*=====================================
+  7. SIDEBAR NAV
+=====================================*/
+.sidebar-nav .nav-link {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    background-color: rgba(242, 209, 230, 0.04);
+    border: 1px solid rgba(242, 209, 230, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .sidebar-nav .nav-link:hover,
+[data-theme="light"] .sidebar-nav .nav-link.active {
+    background-color: rgba(82, 82, 91, 0.1);
+    border: 1px solid rgba(82, 82, 91, 0.3);
+}
+
+.sub-link {
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.88rem !important;
+}
+
+.badge-custom {
+    background: var(--border-color);
+    color: var(--text-primary);
+    border-radius: 12px;
+    font-size: 0.75rem;
+}
+
+.sidebar-nav .nav-link:hover .badge-custom {
+    background: var(--focus-ring);
+    color: #ffffff;
+}
+
+.icon-hover {
+    transition: color 0.2s ease;
+}
+
+.icon-hover:hover {
+    color: var(--focus-ring) !important;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.profile-img:hover {
+    border-color: var(--focus-ring);
+}
+
+.dropdown-toggle-no-caret::after {
+    display: none;
+}
+
+/*=====================================
+  8. DROPDOWN
+=====================================*/
+.dropdown-menu.custom-dropdown {
+    display: block !important;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 0.2s ease-out,
+        transform 0.2s ease-out,
+        visibility 0.2s ease-out;
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.5rem;
+    min-width: 200px;
+    pointer-events: none;
+}
+
+.dropdown-menu.custom-dropdown.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.custom-dropdown .dropdown-item {
+    color: var(--text-muted);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: rgba(242, 209, 230, 0.08);
+    color: var(--focus-ring);
+}
+
+[data-theme="light"] .custom-dropdown .dropdown-item:hover {
+    background-color: rgba(82, 82, 91, 0.08);
+    color: var(--focus-ring);
+}
+
+/*=====================================
+  9. THEME SWITCH
+=====================================*/
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
@@ -155,7 +306,6 @@ html {
     border-radius: 24px;
 }
 
-/* SOLUCIÓN AL BUG: Las transiciones del fondo y del círculo solo se activan con .theme-ready */
 .theme-ready .slider,
 .theme-ready .slider:before {
     transition: 0.4s ease;
@@ -176,7 +326,6 @@ html {
     background-color: #52525b;
 }
 
-/* Light theme slider */
 [data-theme="light"] .theme-switch input:checked + .slider {
     background-color: #ededed;
 }
@@ -230,145 +379,9 @@ html {
     color: #52525b;
 }
 
-/* Barra de Búsqueda */
-.search-bar {
-    background-color: #1f1f23;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.search-bar:focus-within {
-    border-color: var(--focus-ring);
-}
-
-.search-icon {
-    color: var(--focus-ring);
-}
-
-.custom-placeholder::placeholder {
-    color: #ffffff !important;
-    opacity: 0.8;
-}
-
-.custom-placeholder {
-    color: #ffffff !important;
-}
-
-/* Menú Sidebar */
-.sidebar-nav .nav-link {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    padding: 0.65rem 0.85rem;
-    border-radius: 8px;
-    transition: all 0.2s ease-in-out;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-nav .nav-link:hover,
-.sidebar-nav .nav-link.active {
-    background-color: rgba(242, 209, 230, 0.04);
-    border: 1px solid rgba(242, 209, 230, 0.2);
-    color: var(--text-primary);
-}
-
-/* Light theme hover/active states */
-[data-theme="light"] .sidebar-nav .nav-link:hover,
-[data-theme="light"] .sidebar-nav .nav-link.active {
-    background-color: rgba(82, 82, 91, 0.1);
-    border: 1px solid rgba(82, 82, 91, 0.3);
-}
-
-.sub-link {
-    padding: 0.45rem 0.85rem !important;
-    font-size: 0.88rem !important;
-}
-
-.badge-custom {
-    background: var(--border-color);
-    color: var(--text-primary);
-    border-radius: 12px;
-    font-size: 0.75rem;
-}
-
-.sidebar-nav .nav-link:hover .badge-custom {
-    background: var(--focus-ring);
-    color: #ffffff;
-}
-
-.icon-hover {
-    transition: color 0.2s ease;
-}
-.icon-hover:hover {
-    color: var(--focus-ring) !important;
-}
-
-.profile-img {
-    width: 35px;
-    height: 35px;
-    object-fit: cover;
-    border: 2px solid transparent;
-    transition: border-color 0.2s ease;
-}
-.profile-img:hover {
-    border-color: var(--focus-ring);
-}
-
-.dropdown-toggle-no-caret::after {
-    display: none;
-}
-
-/* Animación de Dropdowns del Navbar */
-.dropdown-menu.custom-dropdown {
-    display: block !important;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: auto;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(8px);
-    transition:
-        opacity 0.2s ease-out,
-        transform 0.2s ease-out,
-        visibility 0.2s ease-out;
-    background-color: var(--bg-sidebar);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 0.5rem;
-    min-width: 200px;
-    pointer-events: none;
-}
-
-.dropdown-menu.custom-dropdown.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.custom-dropdown .dropdown-item {
-    color: var(--text-muted);
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-}
-
-.custom-dropdown .dropdown-item:hover {
-    background-color: rgba(242, 209, 230, 0.08);
-    color: var(--focus-ring);
-}
-
-/* Light theme dropdown hover */
-[data-theme="light"] .custom-dropdown .dropdown-item:hover {
-    background-color: rgba(82, 82, 91, 0.08);
-    color: var(--focus-ring);
-}
-
-/* Responsivo */
+/*=====================================
+  10. RESPONSIVE
+=====================================*/
 .sidebar-overlay {
     position: fixed;
     top: 0;
